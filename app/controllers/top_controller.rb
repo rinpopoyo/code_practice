@@ -5,4 +5,8 @@ class TopController < ApplicationController
   def profile
 
   end
+
+  def excercise
+
+  end
 end
