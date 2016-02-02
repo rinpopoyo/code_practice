@@ -9,8 +9,9 @@ class TopController < ApplicationController
     birthday = @birth_day.to_date
     @age = (Date.today.strftime(date_format).to_i - birthday.strftime(date_format).to_i) / 10000
     @hometown = "滋賀県"
-    @skills = "プログラミング"
+    @skills = ["プログラミング", "詩の朗読", "ものまね"]
     @remarks = "よろしくお願い致します"
+    @gender = "man"
   end
 
   def excercise
