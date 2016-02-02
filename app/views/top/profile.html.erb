@@ -10,30 +10,40 @@
     <div class="value"><%= @user_name %></div>
   </div>
 
+
   <div class="profile_detail">
     <div class="label">生年月日</div>
-    <div class="value"><%= @birth_day %></div>
+      <% if @birth_day.present? %>
+        <div class="value"><%= @birth_day %></div>
+      <% else %>
+        <div class="value"><%= "未設定" %></div>
+      <% end %>
   </div>
 
-  <% if @gender == "man" %>
+  <% if @birth_day.present? %>
+    <% if @gender == "man" %>
+      <div class="profile_detail">
+        <div class="label">年齢</div>
+        <div class="value"><%= @age %></div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <% if @hometown.present? %>
     <div class="profile_detail">
-      <div class="label">年齢</div>
-      <div class="value"><%= @age %></div>
+      <div class="label">出身地</div>
+      <div class="value"><%= @hometown %></div>
     </div>
   <% end %>
 
-
-  <div class="profile_detail">
-    <div class="label">出身地</div>
-    <div class="value"><%= @hometown %></div>
-  </div>
-
-  <div class="profile_detail">
-    <div class="label">特技</div>
-    <% @skills.each do |skill| %>
-    <div class="value"><%= skill %></div>
-    <% end %>
-  </div>
+  <% if @skills.present? %>
+    <div class="profile_detail">
+      <div class="label">特技</div>
+      <% @skills.each do |skill| %>
+      <div class="value"><%= skill %></div>
+      <% end %>
+    </div>
+  <% end %>
 
   <% if @remarks.present? %>
     <div class="profile_detail">
