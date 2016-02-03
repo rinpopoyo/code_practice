@@ -1,2 +1,46 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="profile">
+  <h1>プロフィール</h1>
+
+  <div class="profile_image">
+    <%= image_tag 'codecamp_image.png' %>
+  </div>
+
+  <div class="profile_detail">
+    <div class="label">ユーザー名</div>
+    <div class="value"><%= @user.name %></div>
+  </div>
+
+
+  <div class="profile_detail">
+    <div class="label">生年月日</div>
+      <% if @user.birthday.present? %>
+        <div class="value"><%= @user.birthday %></div>
+      <% else %>
+        <div class="value"><%= "未設定" %></div>
+      <% end %>
+  </div>
+
+  <% if @user.birthday.present? %>
+    <% if @user.gender == "male" %>
+      <div class="profile_detail">
+        <div class="label">年齢</div>
+        <div class="value"><%= @age %></div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <% if @user.hometown.present? %>
+    <div class="profile_detail">
+      <div class="label">出身地</div>
+      <div class="value"><%= @user.hometown %></div>
+    </div>
+  <% end %>
+
+  <% if @user.remarks.present? %>
+    <div class="profile_detail">
+      <div class="label">ひとこと</div>
+      <div class="value"><%= @user.remarks %></div>
+    </div>
+  <% end %>
+
+</div>
