@@ -3,7 +3,7 @@
   <table>
     <theader>
       <tr>
-        <th>名前</th><th>性別</th><th>生年月日</th><th>出身</th>
+        <th>名前</th><th>性別</th><th>生年月日</th><th>出身</th><th>編集</th><th>削除</th>
       </tr>
     </theader>
   <tbody>
@@ -26,6 +26,10 @@
 
           <td>
             <%= link_to"編集", edit_user_path(user) %>
+          </td>
+
+          <td>
+            <%= link_to "削除", user_path(user), :method => :delete %>
           </td>
         </tr>
 

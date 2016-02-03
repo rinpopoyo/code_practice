@@ -28,18 +28,24 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.save
-    render :show
+    #render :show
+    redirect_to :action => "show" #もしくは redirect_to @user
   end
 
   # データを更新するためのAction
   def update
     @user = User.find(params[:id])
     @user.update_attributes(user_params)
-    render :show
+    #render :show
+    redirect_to @user #もしくは redirect_to :action => "show"
   end
 
   # データを削除するためのAction
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    #@users = User.all
+    redirect_to :users #もしくは redirect_to :action => "index"
   end
 
   def user_params
