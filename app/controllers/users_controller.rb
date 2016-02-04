@@ -2,6 +2,15 @@ class UsersController < ApplicationController
   # 初期表示
   def index
     @users = User.all
+
+    # パラメータとして名前か性別を受け取っている場合は絞って検索する
+    if params[:name].present?
+      @users = @users.get_by_name params[:name]
+    end
+
+    if params[:gender].present?
+      @users=@users.get_by_gender params[:gender]
+    end
   end
 
   # データを閲覧する画面を表示するためのAction
@@ -29,7 +38,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.save
     #render :show
-    redirect_to :action => "show" #もしくは redirect_to @user
+    redirect_to controller: 'users', action: 'show', id: @user.id #redirect_to :action => "show" #もしくは redirect_to @user
   end
 
   # データを更新するためのAction
