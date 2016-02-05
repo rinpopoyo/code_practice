@@ -12,6 +12,11 @@ class UsersController < ApplicationController
     if params[:gender].present?
       @users=@users.get_by_gender params[:gender]
     end
+
+    if params[:hometown].present?
+      @users = @users.get_by_hometown(params[:hometown])
+      # @users = @users.get_by_hometown params[:hometown]  ← これでもOK
+    end
   end
 
   # データを閲覧する画面を表示するためのAction

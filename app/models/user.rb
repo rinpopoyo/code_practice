@@ -11,4 +11,7 @@ class User < ActiveRecord::Base
     where(gender: gender)
     }
 
+  # 出身地による絞り込み
+  scope :get_by_hometown, -> (hometown) { where("hometown like ?", "%#{hometown}%")}
+
 end
