@@ -17,6 +17,9 @@ class UsersController < ApplicationController
       @users = @users.get_by_hometown(params[:hometown])
       # @users = @users.get_by_hometown params[:hometown]  ← これでもOK
     end
+
+    # ページネーション(kaminari)
+    @users = @users.page(params[:page]).per(4)
   end
 
   # データを閲覧する画面を表示するためのAction
