@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     # パラメータとして名前か性別を受け取っている場合は絞って検索する
     if params[:name].present?
       @users = @users.get_by_name params[:name]
+      #@users = @users.get_by_name(params[:name])  ← これでもOK
     end
 
     if params[:gender].present?

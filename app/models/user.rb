@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   # ユーザー名による絞り込み
   scope :get_by_name, -> (name) {where("name like ?", "%#{name}%")}
-
+  # この書き方でも良い   scope :get_by_name, -> (name) {where("name like '%#{name}%' ")}
 
 
   # 性別による絞り込み
