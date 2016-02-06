@@ -5,6 +5,10 @@
     <%= image_tag @user.image('medium') %>
   </div>
 
+  <div class="profile_image">
+    <%= image_tag @user.photo('medium') %>
+  </div>
+
   <div class="profile_detail">
     <div class="label">ユーザー名</div>
     <div class="value"><%= @user.name %></div>

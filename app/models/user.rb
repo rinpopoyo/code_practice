@@ -22,4 +22,12 @@ class User < ActiveRecord::Base
 
   validates_attachment_content_type :image, content_type: /image/
 
+  # 画像の保存設定
+  has_attached_file :photo,
+  styles: {medium:"300x300>",thumb:"200x200>"},
+  path: "#{Rails.root}/public/system/:class/image/photo/:id.:style.:extension",
+  url: "/system/:class/image/photo/:id.:style.:extension"
+
+  validates_attachment_content_type :image, content_type: /image/
+
 end
