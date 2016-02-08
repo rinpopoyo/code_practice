@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   enum gender: { unknown: 0, male: 1, female: 2, other: 9 }
 
+  has_one :social_account
+
   # ユーザー名による絞り込み
   scope :get_by_name, -> (name) {where("name like ?", "%#{name}%")}
   # この書き方でも良い   scope :get_by_name, -> (name) {where("name like '%#{name}%' ")}

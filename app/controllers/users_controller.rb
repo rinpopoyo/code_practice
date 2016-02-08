@@ -25,11 +25,11 @@ class UsersController < ApplicationController
   # データを閲覧する画面を表示するためのAction
   def show
     @user = User.find(params[:id])
-    #unless @user.birthday = ""  # unless @birth_day = blankだとエラーになる。
+    unless @user.birthday = ""  # unless @birth_day = blankだとエラーになる。
       date_format = "%Y%m%d"
       birthday = @user.birthday.to_date
       @age = (Date.today.strftime(date_format).to_i - birthday.strftime(date_format).to_i) / 10000
-    #end
+    end
   end
 
   # データを作成する画面を表示するためのAction
