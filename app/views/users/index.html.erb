@@ -1,60 +1,74 @@
 <h1>ユーザー一覧</h1>
-<div>
-  <%= link_to "新規ユーザー登録", new_user_path %>
-</div>
-<div>
-  <%=form_tag(users_path, method: "get") do %>
-    <%= label_tag :name, "名前" %>
-    <%= text_field_tag :name, params[:name] %>
-    <%= label_tag :name, "性別" %>
-    <%= select_tag :gender, options_for_select(User.genders), include_blank: true %>
-    <%= label_tag :name, "出身地" %>
-    <%= text_field_tag :hometown, params[:hometown] %>
-    <%= submit_tag "検索" %>
-  <%end%>
-</div>
+<div class="row">
+  <div class="col s9 m9 l9">
+    <div>
+      <%= link_to "新規ユーザー登録", new_user_path %>
+    </div>
+    <div id="search" class="col s9 m9 l9">
 
-<div class="profile_list">
-  <table>
-    <theader>
-      <tr>
-        <th>名前</th><th>性別</th><th>生年月日</th><th>出身</th><th>image</th><th>編集</th><th>削除</th>
-      </tr>
-    </theader>
-  <tbody>
-    <% @users.each do |user| %>
-        <tr>
-          <td>
-            <%= link_to user.name, user_path(user) %>
-          </td>
-          <td>
-            <%= user.gender %>
-          </td>
+      <%=form_tag(users_path, method: "get") do %>
+        <ul class="search_form">
+        <li>
+          <%= label_tag :name, "名前" %>
+          <%= text_field_tag :name, params[:name] %>
+        </li>
+        <li>
+        <%= label_tag :name, "性別" %>
+        <%= select_tag :gender, options_for_select(User.genders), class: "browser-default", include_blank: true %>
+        </li>
+        <li>
+          <%= label_tag :name, "出身地" %>
+          <%= text_field_tag :hometown, params[:hometown] %>
+        </li>
+        <li><%= submit_tag "検索" %></li>
+        </ul>
+      <%end%>
 
-          <td>
-            <%= user.birthday %>
-          </td>
+    </div>
 
-          <td>
-            <%= user.hometown %>
-          </td>
+    <div class="profile_list">
+      <table class="bordered">
+        <theader>
+          <tr>
+            <th>名前</th><th>性別</th><th>生年月日</th><th>出身</th><th>image</th><th>編集</th><th>削除</th>
+          </tr>
+        </theader>
+      <tbody>
+        <% @users.each do |user| %>
+            <tr>
+              <td>
+                <%= link_to user.name, user_path(user) %>
+              </td>
+              <td>
+                <%= user.gender %>
+              </td>
 
-          <td>
-            <%= image_tag user.image('thumb') %>
-          </td>
+              <td>
+                <%= user.birthday %>
+              </td>
 
-          <td>
-            <%= link_to"編集", edit_user_path(user) %>
-          </td>
+              <td>
+                <%= user.hometown %>
+              </td>
 
-          <td>
-            <%= link_to "削除", user_path(user), :method => :delete %>
-          </td>
-        </tr>
+              <td>
+                <%= image_tag user.image('thumb') %>
+              </td>
 
-    <% end %>
+              <td>
+                <%= link_to"編集", edit_user_path(user) %>
+              </td>
 
-    </tbody>
-  </table>
-  <%= paginate @users %>
+              <td>
+                <%= link_to "削除", user_path(user), :method => :delete %>
+              </td>
+            </tr>
+
+        <% end %>
+
+        </tbody>
+      </table>
+      <%= paginate @users %>
+    </div>
+  </div>
 </div>

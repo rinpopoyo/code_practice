@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+
+
+ @import "materialize/components/color";
+ $primary-color: color("teal", "lighten-2") !default;
+ @import 'materialize';
+
+#search {
+    background-color: #f5f2f0;
+  }
+
+.search_form {
+      display: flex;
+      padding:10px;
+      justify-content: space-between;
+    }
+#li { padding: 10px;}
+
+nav {
+   background-color: #0089EC;
+ }
+
+ input[type="submit"] {
+   @extend .btn;
+   @extend .waves-effect;
+   @extend .waves-light;
+   background-color: #0089EC;
+ }

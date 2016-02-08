@@ -38,6 +38,8 @@ gem 'kaminari'
 # 画像のアップロード
 gem 'paperclip'
 
+gem 'materialize-sass'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
