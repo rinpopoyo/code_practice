@@ -40,6 +40,12 @@
     </div>
   <% end %>
 
+  <div class="profile_detail">
+    <div class="label">特技</div>
+    <% @user.skills.each do |s| %>
+          <div class="value"><%= s.skill_name %></div>
+    <% end %>
+
   <% if @user.remarks.present? %>
     <div class="profile_detail">
       <div class="label">ひとこと</div>

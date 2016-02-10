@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   # 初期表示
   def index
     @users = User.all
-
+    #@skills = Skill.all
     # パラメータとして名前か性別を受け取っている場合は絞って検索する
     if params[:name].present?
       @users = @users.get_by_name params[:name]
@@ -67,6 +67,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name,:gender,:birthday,:hometown,:remarks, :image, :photo)
+    params.require(:user).permit(:name,:gender,:birthday,:hometown,:remarks, :image, :photo, :skill_name)
   end
 end

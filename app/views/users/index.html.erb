@@ -30,7 +30,7 @@
       <table class="bordered">
         <theader>
           <tr>
-            <th>名前</th><th>性別</th><th>生年月日</th><th>出身</th><th>image</th><th>編集</th><th>削除</th>
+            <th>名前</th><th>性別</th><th>生年月日</th><th>出身</th><th>image</th><th>特技</th><th>編集</th><th>削除</th>
           </tr>
         </theader>
       <tbody>
@@ -53,6 +53,18 @@
 
               <td>
                 <%= image_tag user.image('thumb') %>
+              </td>
+
+              <td>
+                <% user.skills.each do |s| %>
+                <%# @users.each do |u| %>
+                <%# if s.user_id.present? %>
+                  <%# u.skills.each do |s| %>
+
+                      <div class="value"><%= s.skill_name %></div>
+                    <%# end %>
+                  <%# end %>
+                <% end %>
               </td>
 
               <td>
