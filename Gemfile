@@ -40,6 +40,8 @@ gem 'paperclip'
 
 gem 'materialize-sass'
 
+gem "font-awesome-rails"
+
 # ログイン機能
 gem 'devise'
 gem 'omniauth'

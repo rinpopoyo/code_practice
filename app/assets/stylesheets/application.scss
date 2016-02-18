@@ -12,12 +12,13 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 
 
- @import "materialize/components/color";
- $primary-color: color("teal", "lighten-2") !default;
+ 
  @import 'materialize';
+ @import "font-awesome";
 
 #search {
     background-color: #f5f2f0;

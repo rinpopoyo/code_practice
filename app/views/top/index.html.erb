@@ -1,4 +1,10 @@
 <h1>Top#index</h1>
 <p>Find me in app/views/top/index.html.erb</p>
 
+<div>
+  <button class="btn btn-xs btn-info">
+    <i class="fa fa-twitter"></i> | Sign in with Twitter
+  </button>
+</div><br>
+
 <%= link_to 'Google認証', social_account_omniauth_authorize_path(:google_oauth2) %>
